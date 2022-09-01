@@ -1,11 +1,18 @@
+import "dotenv/config";
 import express from 'express';
+import { connectDb } from "./database/connection";
+
 const app = express();
-const port = 3000;
+
+const PORT = process.env.PORT;
+const dbURI = process.env.DB_URI;
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.listen(port, () => {
-  return console.log(`Express is listening at http://localhost:${port}`);
+app.listen(PORT, () => {
+  return console.log(`Express is listening at http://localhost:${PORT}`);
 });
+
+connectDb(dbURI);
