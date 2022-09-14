@@ -18,11 +18,6 @@ router.get('/', (req: Request, res: Response) => {
   res.send(listEndpoints(app))
 })
 
-
-/*app.get('/', (req, res) => {
-  res.send('Hello World!');
-});*/
-
 app.listen(PORT, () => {
   return console.log(`Express is listening at http://localhost:${PORT}`);
 });
