@@ -1,4 +1,5 @@
 import mongoose, { Schema, Types } from "mongoose";
+import uniqueValidator from "mongoose-unique-validator"
 import bcrypt from 'bcryptjs';
 
 interface IUser {
@@ -16,8 +17,8 @@ interface IUser {
 const UserSchema: Schema = new Schema<IUser>({
     username: {
         type: String,
-        uniqe: true,
         required: [true, "Can't be blank"],
+        unique: true,
         index: true,
     },
     avatar: {
@@ -58,6 +59,8 @@ UserSchema.pre<IUser>("save", async function (next: any) {
 UserSchema.methods.matchPassword = async function (password:string) {
     return await bcrypt.compare(password,this.password)   
 }
+
+UserSchema.plugin(uniqueValidator);
 
 const User = mongoose.model<IUser>("User", UserSchema);
 
