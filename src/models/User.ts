@@ -60,7 +60,7 @@ UserSchema.methods.matchPassword = async function (password:string) {
     return await bcrypt.compare(password,this.password)   
 }
 
-UserSchema.plugin(uniqueValidator);
+UserSchema.plugin(uniqueValidator, {message: "{PATH} already exists"});
 
 const User = mongoose.model<IUser>("User", UserSchema);
 
