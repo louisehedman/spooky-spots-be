@@ -6,6 +6,9 @@ import {
   logout,
   authorization,
 } from "../controllers/AuthController";
+import { 
+  getAllUsers, 
+  getUser } from "../controllers/UserController";
 
 const router = Router();
 
@@ -29,6 +32,11 @@ router.post("/login", login);
 
 // Auth routes
 router.post("/logout", authorization, logout);
+
+//Users routes
+router.get("/users", authorization, getAllUsers);
+router.get("/user/:id", authorization, getUser);
+
 
 
 export default router;
