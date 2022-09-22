@@ -4,6 +4,7 @@ import router from "./routes/router";
 import cookieParser from 'cookie-parser';
 import listEndpoints from 'express-list-endpoints';
 import { connectDb } from "./database/connection";
+import { seedGhostTypes } from "./seeder/seeder";
 
 const app = express();
 
@@ -23,3 +24,7 @@ app.listen(PORT, () => {
 });
 
 connectDb(dbURI);
+
+if (process.argv.includes("seed")) {
+  seedGhostTypes();
+}

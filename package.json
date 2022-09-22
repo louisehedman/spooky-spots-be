@@ -6,6 +6,7 @@
   "scripts": {
     "start": "tsc && node dist/server.js",
     "dev": "npx tsc && nodemon src/server.ts",
+    "seed": "npx tsc && npx ts-node src/server.ts seed",
     "lint": "eslint . --ext .ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
