@@ -9,6 +9,7 @@ import {
 import { 
   getAllUsers, 
   getUser } from "../controllers/UserController";
+import { createSpookySpot, deleteSpookySpot, getAllSpookySpots, getSpookySpot } from "../controllers/SpookySpotController";
 
 const router = Router();
 
@@ -28,6 +29,11 @@ router.use(cors(corsOptions));
 router.post("/register", register);
 router.post("/login", login);
 
+// Spooky spot routes
+router.post("/spookyspot", createSpookySpot)
+router.get("/spookyspots", getAllSpookySpots)
+router.get("/spookyspots/:spookySpot", getSpookySpot)
+
 // **Protected routes**
 
 // Auth routes
@@ -35,7 +41,11 @@ router.post("/logout", authorization, logout);
 
 //Users routes
 router.get("/users", authorization, getAllUsers);
-router.get("/user/:id", authorization, getUser);
+router.get("/user", authorization, getUser);
+
+// Spooky spot routes
+router.delete("/spookyspots/:spookySpot", authorization, deleteSpookySpot)
+
 
 
 
