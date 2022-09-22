@@ -6,10 +6,18 @@ import {
   logout,
   authorization,
 } from "../controllers/AuthController";
-import { 
-  getAllUsers, 
-  getUser } from "../controllers/UserController";
-import { createSpookySpot, deleteSpookySpot, getAllSpookySpots, getSpookySpot } from "../controllers/SpookySpotController";
+import { getAllUsers, getUser } from "../controllers/UserController";
+import {
+  createSpookySpot,
+  deleteSpookySpot,
+  getAllSpookySpots,
+  getSpookySpot,
+} from "../controllers/SpookySpotController";
+import {
+  createGhostType,
+  getAllGhostTypes,
+  getGhostType,
+} from "../controllers/GhostTypeController";
 
 const router = Router();
 
@@ -30,9 +38,14 @@ router.post("/register", register);
 router.post("/login", login);
 
 // Spooky spot routes
-router.post("/spookyspot", createSpookySpot)
-router.get("/spookyspots", getAllSpookySpots)
-router.get("/spookyspots/:spookySpot", getSpookySpot)
+router.post("/spookyspots", createSpookySpot);
+router.get("/spookyspots", getAllSpookySpots);
+router.get("/spookyspots/:spookySpot", getSpookySpot);
+
+// Ghost type routes
+router.post("/ghosttypes", createGhostType);
+router.get("/ghosttypes", getAllGhostTypes);
+router.get("/ghosttypes/:ghostType", getGhostType);
 
 // **Protected routes**
 
@@ -44,9 +57,6 @@ router.get("/users", authorization, getAllUsers);
 router.get("/user", authorization, getUser);
 
 // Spooky spot routes
-router.delete("/spookyspots/:spookySpot", authorization, deleteSpookySpot)
-
-
-
+router.delete("/spookyspots/:spookySpot", authorization, deleteSpookySpot);
 
 export default router;
