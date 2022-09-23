@@ -4,7 +4,7 @@ import router from "./routes/router";
 import cookieParser from 'cookie-parser';
 import listEndpoints from 'express-list-endpoints';
 import { connectDb } from "./database/connection";
-import { seedGhostTypes } from "./seeder/seeder";
+import { seedGhostTypes, seedSpookySpots } from "./seeder/seeder";
 
 const app = express();
 
@@ -27,4 +27,5 @@ connectDb(dbURI);
 
 if (process.argv.includes("seed")) {
   seedGhostTypes();
+  seedSpookySpots();
 }

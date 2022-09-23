@@ -2,11 +2,12 @@ import * as fs from "fs";
 import mongoose from "mongoose";
 import { ErrorResponse } from "../utils/errorResponse";
 import GhostType from "../models/GhostType";
+import SpookySpot from "../models/SpookySpot";
 
 const seedGhostTypes = async () => {
     const db = mongoose.connection;
     const ghostTypes = JSON.parse(
-      fs.readFileSync(__dirname + "/ghosttypes.json", "utf-8")
+      fs.readFileSync(__dirname + "/ghostTypes.json", "utf-8")
     );
     try {
       await db
@@ -23,4 +24,24 @@ const seedGhostTypes = async () => {
     }
   }
 
-  export { seedGhostTypes };
+  const seedSpookySpots = async () => {
+    const db = mongoose.connection;
+    const spookySpots = JSON.parse(
+      fs.readFileSync(__dirname + "/spookySpots.json", "utf-8")
+    );
+    try {
+      await db
+        .dropCollection("spookyspots")
+        .then(() => {
+          console.log(`${db.name}.spookyspots collection dropped`);
+        })
+        .then(() => {
+          SpookySpot.insertMany(spookySpots);
+        });
+      console.log(`${db.name}.spookyspots collection created, documents inserted`);
+    } catch (error) {
+        return new ErrorResponse(error, 500);
+    }
+  }
+
+  export { seedGhostTypes, seedSpookySpots };
