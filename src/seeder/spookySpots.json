@@ -4,8 +4,13 @@
         "address": "Tassvägen 54",
         "postalCode": "813 67 Härjedalen",
         "country": "Sweden",
-        "latitude": 61.787859,
-        "longitude": 13.881507,
+        "location": {
+            "type" : "Point",
+        "coordinates" : [
+            13.881507,
+            61.787859
+            ]
+        },
         "description": "Description Vargtimmesgården Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
         "image": "https://cdn.pixabay.com/photo/2020/02/08/16/14/house-4830491_1280.jpg",
         "createdAt": "2022-09-22T07:16:07.144Z",
@@ -20,8 +25,13 @@
         "address": "Coastal path 2",
         "postalCode": "93 Ballybeg Island",
         "country": "Ireland",
-        "latitude": 53.711011,
-        "longitude": -10.047149,
+        "location": {
+            "type" : "Point",
+        "coordinates" : [
+            -10.047149,
+            53.711011
+            ]
+        },
         "description": "Description Seamans nightmare Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
         "image": "https://cdn.pixabay.com/photo/2017/06/23/21/56/home-2436063_1280.jpg",
         "createdAt": "2022-08-29T10:38:14.213Z",
@@ -38,8 +48,13 @@
         "address": "Pinschervejen 29",
         "postalCode": "6990 Ulfborg",
         "country": "Denmark",
-        "latitude": 56.2970676,
-        "longitude": 8.1689755,
+        "location": {
+            "type" : "Point",
+        "coordinates" : [
+            8.1689755,
+            56.2970676
+            ]
+        },
         "description": "Description Hundpalatset Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
         "image": "https://cdn.pixabay.com/photo/2016/08/14/17/02/haunted-house-1593395_1280.jpg",
         "createdAt": "2022-09-23T10:12:17.233Z",
