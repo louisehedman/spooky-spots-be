@@ -57,4 +57,17 @@ const changePassword = async (req: Request, res: Response) => {
     }
 };
 
-export { getAllUsers, getUser, changePassword };
+const changeEmail = async (req: Request, res: Response) => {
+  try {
+    const user = await User.findById(req.body.id);
+    if (user) {
+      const email = await (req.body.email);
+      const userEmail = await User.findByIdAndUpdate({_id: user.id}, {email: email}, { new: true})
+      return res.status(200).json({status: true, data: userEmail})
+    } 
+  } catch (error) {
+      return res.status(400).json({status: false, error: "Error occured"});
+    }
+};
+
+export { getAllUsers, getUser, changePassword, changeEmail };
