@@ -46,7 +46,7 @@ const register = async (req: Request, res: Response, next: any) => {
             maxAge: 840000,
           })
           .status(200)
-          .json({ success: true, user: user.username });
+          .json({ success: true, username: user.username, role: user.role });
       }
     } catch (error: any) {
       return res.status(500).json(error.message);
