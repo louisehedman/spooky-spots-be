@@ -6,7 +6,7 @@ import {
   logout,
   authorization,
 } from "../controllers/AuthController";
-import { changeEmail, changePassword, deleteUser, getAllUsers, getUser } from "../controllers/UserController";
+import { changeEmail, changePassword, deleteUser, editUser, getAllUsers, getOneUser, getUser } from "../controllers/UserController";
 import {
   createSpookySpot,
   deleteSpookySpot,
@@ -55,7 +55,9 @@ router.post("/logout", authorization, logout);
 //Users routes
 router.get("/users", authorization, getAllUsers);
 router.get("/user", authorization, getUser);
+router.get("/users/:id", authorization, getOneUser);
 router.delete("/users/:id", authorization, deleteUser);
+router.put("/users/:id", authorization, editUser);
 router.put("/user/change_password", authorization, changePassword);
 router.put("/user/change_email", authorization, changeEmail);
 
