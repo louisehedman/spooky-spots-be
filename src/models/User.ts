@@ -1,6 +1,7 @@
 import mongoose, { Schema, Types } from "mongoose";
 import uniqueValidator from "mongoose-unique-validator"
 import bcrypt from 'bcryptjs';
+import { ISpookySpotListItem, SpookySpotListItemSchema } from './SpookySpotListItem';
 
 interface IUser {
     isModified(arg: string): any;
@@ -12,6 +13,7 @@ interface IUser {
     password: string;
     email: string;
     isAdmin: boolean;
+    spookySpotList: Types.DocumentArray<ISpookySpotListItem>
 }
 
 const UserSchema: Schema = new Schema<IUser>({
@@ -42,6 +44,11 @@ const UserSchema: Schema = new Schema<IUser>({
     isAdmin: {
         type: Boolean, 
         default: false,
+    },
+    spookySpotList: {
+        type: [SpookySpotListItemSchema],
+        required: false
+
     },
     resetPasswordToken: String,
     resetPasswordExpire: String,
