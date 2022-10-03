@@ -85,10 +85,7 @@ const editSpookySpotListItem = async (req: Request, res: Response) => {
 
   try {
     const updatedUser = await User.findOneAndUpdate(
-      {
-        _id: userId,
-        "spookySpotList._id": listItemId,
-      },
+      { _id: userId, "spookySpotList._id": listItemId },
       {
         $set: {
           "spookySpotList.$.comment": comment,
@@ -110,9 +107,37 @@ const editSpookySpotListItem = async (req: Request, res: Response) => {
   }
 };
 
+const deleteSpookySpotListItem = async (req: Request, res: Response) => {
+  const { userId, listItemId } = req.params;
+  try {
+    const deletedListItem: any = await User.findOneAndUpdate(
+      {
+        _id: userId,
+      },
+      {
+        $pull: {
+          spookySpotList: {
+            _id: listItemId,
+          },
+        },
+      }
+    );
+    if (deletedListItem) {
+      res.status(200).json({ success: true, message: "List item deleted" });
+    } else {
+      return res
+        .status(404)
+        .json({ success: false, message: "Could not delete list item" });
+    }
+  } catch (err) {
+    res.status(500).json({ message: "Error while trying to delete list item" });
+  }
+};
+
 export {
   getSpookySpotList,
   getSpookySpotListItem,
   createSpookySpotListItem,
   editSpookySpotListItem,
+  deleteSpookySpotListItem,
 };

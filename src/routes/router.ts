@@ -18,7 +18,7 @@ import {
   getAllGhostTypes,
   getGhostType,
 } from "../controllers/GhostTypeController";
-import { createSpookySpotListItem, editSpookySpotListItem, getSpookySpotList, getSpookySpotListItem } from "../controllers/SpookySpotListController";
+import { createSpookySpotListItem, deleteSpookySpotListItem, editSpookySpotListItem, getSpookySpotList, getSpookySpotListItem } from "../controllers/SpookySpotListController";
 
 const router = Router();
 
@@ -61,10 +61,14 @@ router.delete("/users/:id", authorization, deleteUser);
 router.put("/users/:id", authorization, editUser);
 router.put("/user/change_password", authorization, changePassword);
 router.put("/user/change_email", authorization, changeEmail);
+
+// SpookySpotList routes
 router.get("/spookyspot-list", authorization, getSpookySpotList);
 router.get("/spookyspot-list/:listItemId", authorization, getSpookySpotListItem);
-router.patch("/spookyspot-list-item", authorization, createSpookySpotListItem);
-router.patch("/edit-spookylist-item/:userId/:listItemId", authorization, editSpookySpotListItem);
+router.patch("/create-spookyspot-list-item", authorization, createSpookySpotListItem);
+router.patch("/edit-spookyspot-list-item/:userId/:listItemId", authorization, editSpookySpotListItem);
+router.put("/delete-spookyspot-list-item/:userId/:listItemId", authorization, deleteSpookySpotListItem);
+
 
 
 
