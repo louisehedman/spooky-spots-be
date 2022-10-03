@@ -1,7 +1,6 @@
 import { Schema } from "mongoose";
 import { ObjectId } from "mongodb";
 
-
 interface ISpookySpotListItem {
   _id: ObjectId;
   spookySpotId: ObjectId;
@@ -17,11 +16,12 @@ const SpookySpotListItemSchema: Schema = new Schema<ISpookySpotListItem>({
       },
       hasVisited: {
         type: Boolean,
-        default: false
+        unique: false,
+        required: true,
       }, 
       comment: {
         type: String,
-        default: ""
+        default: "",
       }
   });
   
