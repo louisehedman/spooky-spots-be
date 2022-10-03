@@ -9,7 +9,7 @@ const getAllUsers = async (req: Request, res: Response) => {
   try {
     const user = await User.findById(req.body.id);
     // Only admins is allowed to get users
-    if (user.role === 1) {
+    if (user.isAdmin === true) {
       const users = await User.find();
 
       if (users) {
@@ -76,12 +76,13 @@ const getOneUser = async (req: Request, res: Response) => {
 // Edit user
 const editUser = async (req: Request, res: Response) => {
   try {
-    let { role } = req.body;
+    let { isAdmin, email } = req.body;
     const editedUser: any = await User.findOneAndUpdate(
       { _id: req.params.id },
       {
         $set: {
-          role: role,
+          isAdmin: isAdmin,
+          email: email,
         },
       },
       { new: true }

@@ -43,10 +43,10 @@ const register = async (req: Request, res: Response, next: any) => {
             sameSite: "none",
             secure: true,
             path: "/",
-            maxAge: 8400000,
+            maxAge: 365 * 24 * 60 * 60,
           })
           .status(200)
-          .json({ success: true, username: user.username, role: user.role });
+          .json({ success: true, username: user.username, isAdmin: user.isAdmin });
       }
     } catch (error: any) {
       return res.status(500).json(error.message);
@@ -70,7 +70,7 @@ const register = async (req: Request, res: Response, next: any) => {
     const token = req.cookies.access_token;
   
     // Will be true if cookie is not sent or expired
-    if (!token || token === undefined) {
+    if (!token) {
       return res
         .clearCookie("access_token")
         .status(403)
