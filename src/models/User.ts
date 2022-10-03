@@ -11,7 +11,7 @@ interface IUser {
     avatar?: string;
     password: string;
     email: string;
-    role: number;
+    isAdmin: boolean;
 }
 
 const UserSchema: Schema = new Schema<IUser>({
@@ -39,9 +39,9 @@ const UserSchema: Schema = new Schema<IUser>({
         unique: true,
         index: true
     }, 
-    role: {
-        type: Number, 
-        default: 0,
+    isAdmin: {
+        type: Boolean, 
+        default: false,
     },
     resetPasswordToken: String,
     resetPasswordExpire: String,
