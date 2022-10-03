@@ -18,7 +18,7 @@ import {
   getAllGhostTypes,
   getGhostType,
 } from "../controllers/GhostTypeController";
-import { createSpookySpotListItem, getSpookySpotList, getSpookySpotListItem } from "../controllers/SpookySpotListController";
+import { createSpookySpotListItem, editSpookySpotListItem, getSpookySpotList, getSpookySpotListItem } from "../controllers/SpookySpotListController";
 
 const router = Router();
 
@@ -64,6 +64,8 @@ router.put("/user/change_email", authorization, changeEmail);
 router.get("/spookyspot-list", authorization, getSpookySpotList);
 router.get("/spookyspot-list/:listItemId", authorization, getSpookySpotListItem);
 router.patch("/spookyspot-list-item", authorization, createSpookySpotListItem);
+router.patch("/edit-spookylist-item/:userId/:listItemId", authorization, editSpookySpotListItem);
+
 
 
 

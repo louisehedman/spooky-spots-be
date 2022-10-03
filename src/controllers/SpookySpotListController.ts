@@ -22,24 +22,24 @@ const getSpookySpotList = async (req: Request, res: Response) => {
 };
 
 const getSpookySpotListItem = async (req: Request, res: Response) => {
-    const { listItemId } = req.params;
-  
-    try {
-      const user = await User.findById(req.body.id);
-  
-      if (user) {
-        const listItem = user.spookySpotList.id(listItemId);
-  
-        if (listItem) {
-          return res.status(200).json({ success: true, listItem });
-        } else {
-          return res.status(404).json({ success: false, message: "Not found" });
-        }
+  const { listItemId } = req.params;
+
+  try {
+    const user = await User.findById(req.body.id);
+
+    if (user) {
+      const listItem = user.spookySpotList.id(listItemId);
+
+      if (listItem) {
+        return res.status(200).json({ success: true, listItem });
+      } else {
+        return res.status(404).json({ success: false, message: "Not found" });
       }
-    } catch (error) {
-      return res.status(500).json({ success: false, error });
     }
-  };
+  } catch (error) {
+    return res.status(500).json({ success: false, error });
+  }
+};
 
 const createSpookySpotListItem = async (req: Request, res: Response) => {
   const { id, spookySpotId, comment, hasVisited } = req.body;
@@ -79,4 +79,40 @@ const createSpookySpotListItem = async (req: Request, res: Response) => {
   }
 };
 
-export { getSpookySpotList, getSpookySpotListItem, createSpookySpotListItem };
+const editSpookySpotListItem = async (req: Request, res: Response) => {
+  let { comment, hasVisited } = req.body;
+  const { userId, listItemId } = req.params;
+
+  try {
+    const updatedUser = await User.findOneAndUpdate(
+      {
+        _id: userId,
+        "spookySpotList._id": listItemId,
+      },
+      {
+        $set: {
+          "spookySpotList.$.comment": comment,
+          "spookySpotList.$.hasVisited": hasVisited,
+        },
+      },
+      { new: true }
+    );
+
+    if (updatedUser) {
+      return res.status(200).json({ success: true, updatedUser });
+    } else {
+      return res
+        .status(404)
+        .json({ success: false, message: "Could not update list item" });
+    }
+  } catch (error) {
+    return res.status(500).json({ success: false, error });
+  }
+};
+
+export {
+  getSpookySpotList,
+  getSpookySpotListItem,
+  createSpookySpotListItem,
+  editSpookySpotListItem,
+};
