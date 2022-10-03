@@ -21,6 +21,26 @@ const getSpookySpotList = async (req: Request, res: Response) => {
   }
 };
 
+const getSpookySpotListItem = async (req: Request, res: Response) => {
+    const { listItemId } = req.params;
+  
+    try {
+      const user = await User.findById(req.body.id);
+  
+      if (user) {
+        const listItem = user.spookySpotList.id(listItemId);
+  
+        if (listItem) {
+          return res.status(200).json({ success: true, listItem });
+        } else {
+          return res.status(404).json({ success: false, message: "Not found" });
+        }
+      }
+    } catch (error) {
+      return res.status(500).json({ success: false, error });
+    }
+  };
+
 const createSpookySpotListItem = async (req: Request, res: Response) => {
   const { id, spookySpotId, comment, hasVisited } = req.body;
 
@@ -59,4 +79,4 @@ const createSpookySpotListItem = async (req: Request, res: Response) => {
   }
 };
 
-export { getSpookySpotList, createSpookySpotListItem };
+export { getSpookySpotList, getSpookySpotListItem, createSpookySpotListItem };
