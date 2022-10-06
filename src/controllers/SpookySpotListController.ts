@@ -44,7 +44,7 @@ const getSpookySpotListItem = async (req: Request, res: Response) => {
 const createSpookySpotListItem = async (req: Request, res: Response) => {
   const { id, spookySpotId, comment, hasVisited } = req.body;
 
-  if (spookySpotId && comment && hasVisited !== undefined) {
+  if (spookySpotId && hasVisited !== undefined) {
     try {
       const user = await User.findById(id);
 
@@ -75,7 +75,10 @@ const createSpookySpotListItem = async (req: Request, res: Response) => {
   } else {
     return res
       .status(400)
-      .json({ success: false, message: "All fields must be populated" });
+      .json({
+        success: false,
+        message: "All required fields must be populated",
+      });
   }
 };
 
