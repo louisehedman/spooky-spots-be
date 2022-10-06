@@ -5,7 +5,6 @@ import cookieParser from 'cookie-parser';
 import listEndpoints from 'express-list-endpoints';
 import { connectDb } from "./database/connection";
 import { seedGhostTypes, seedSpookySpots } from "./seeder/seeder";
-import morgan from "morgan";
 
 const app = express();
 
@@ -15,7 +14,6 @@ const dbURI = process.env.DB_URI;
 app.use(express.json());
 app.use(cookieParser());
 app.use("/", router);
-app.use(morgan('tiny'));
 
 router.get('/', (req: Request, res: Response) => {
   res.send(listEndpoints(app))
