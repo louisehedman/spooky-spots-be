@@ -63,11 +63,11 @@ router.put("/user/change_password", authorization, changePassword);
 router.put("/user/change_email", authorization, changeEmail);
 
 // SpookySpotList routes
-router.get("/spookyspot-list", authorization, getSpookySpotList);
-router.get("/spookyspot-list/:listItemId", authorization, getSpookySpotListItem);
-router.patch("/create-spookyspot-list-item", authorization, createSpookySpotListItem);
-router.patch("/edit-spookyspot-list-item/:userId/:listItemId", authorization, editSpookySpotListItem);
-router.put("/delete-spookyspot-list-item/:userId/:listItemId", authorization, deleteSpookySpotListItem);
+router.get("/get-list", authorization, getSpookySpotList);
+router.get("/get-list/:listItemId", authorization, getSpookySpotListItem);
+router.patch("/create-list-item", authorization, createSpookySpotListItem);
+router.patch("/edit-list-item/:userId/:listItemId", authorization, editSpookySpotListItem);
+router.put("/delete-list-item/:userId/:listItemId", authorization, deleteSpookySpotListItem);
 
 
 

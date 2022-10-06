@@ -21,6 +21,7 @@ const SpookySpotListItemSchema: Schema = new Schema<ISpookySpotListItem>({
       }, 
       comment: {
         type: String,
+        required: false,
         default: "",
       }
   });
