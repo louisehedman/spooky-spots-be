@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/server.js",
   "scripts": {
-    "start": "tsc && node dist/server.js",
+    "start": "npm install && tsc && node dist/server.js",
     "dev": "npx tsc && nodemon src/server.ts",
     "seed": "npx tsc && npx ts-node src/server.ts seed",
     "lint": "eslint . --ext .ts",
