@@ -122,12 +122,20 @@ const changePassword = async (req: Request, res: Response) => {
     if (user) {
       const salt = await bcrypt.genSalt(10);
       const password = await bcrypt.hash(req.body.password, salt);
-      const userPassword = await User.findByIdAndUpdate(
-        { _id: user.id },
-        { password: password },
-        { new: true }
-      );
-      return res.status(200).json({ status: true, data: userPassword });
+      const confirmPassword = await bcrypt.hash(req.body.confirmPassword, salt);
+      if (password === confirmPassword) {
+        const userPassword = await User.findByIdAndUpdate(
+          { _id: user.id },
+          { password: password, confirmPassword: confirmPassword },
+          { new: true }
+        );
+        return res.status(200).json({ status: true, data: userPassword });
+      } else {
+        return res.status(401).json({
+          status: false,
+          message: "Password and confirmation do not match",
+        });
+      }
     }
   } catch (error) {
     return res.status(400).json({ status: false, error: "Error occured" });

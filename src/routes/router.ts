@@ -59,8 +59,8 @@ router.get("/user", authorization, getUser);
 router.get("/users/:id", authorization, getOneUser);
 router.delete("/users/:id", authorization, deleteUser);
 router.put("/users/:id", authorization, editUser);
-router.put("/user/change_password", authorization, changePassword);
-router.put("/user/change_email", authorization, changeEmail);
+router.put("/user/change-password", authorization, changePassword);
+router.put("/user/change-email", authorization, changeEmail);
 
 // SpookySpotList routes
 router.get("/get-list", authorization, getSpookySpotList);
