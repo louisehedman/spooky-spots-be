@@ -2,18 +2,22 @@ import { Response, Request } from "express";
 import { ObjectId } from "mongodb";
 import mongoose from "mongoose";
 import CommunitySubject from "../models/CommunitySubject";
+import User from "../models/User";
 
 // Add community subject
-const createCommunitySubject = async (
-  req: Request,
-  res: Response
-) => {
+const createCommunitySubject = async (req: Request, res: Response) => {
   try {
+    const user = await User.findById(req.body.id);
+    // Only admins are allowed to create community subjects
+    if (user.isAdmin === true) {
     const communitySubject = await CommunitySubject.create(req.body);
     communitySubject.save().then(() => {
       res.status(200).json({ message: "Community subject created" });
     });
-  } catch (error: any) {
+  }  else {
+    res.status(400).json({ message: "You are not allowed to create community subjects" });
+  }}
+  catch (error: any) {
     res.status(500).json(error.message);
   }
 };
