@@ -6,7 +6,15 @@ import {
   logout,
   authorization,
 } from "../controllers/AuthController";
-import { changeEmail, changePassword, deleteUser, editUser, getAllUsers, getOneUser, getUser } from "../controllers/UserController";
+import {
+  changeEmail,
+  changePassword,
+  deleteUser,
+  editUser,
+  getAllUsers,
+  getOneUser,
+  getUser,
+} from "../controllers/UserController";
 import {
   createSpookySpot,
   deleteSpookySpot,
@@ -18,7 +26,18 @@ import {
   getAllGhostTypes,
   getGhostType,
 } from "../controllers/GhostTypeController";
-import { createSpookySpotListItem, deleteSpookySpotListItem, editSpookySpotListItem, getSpookySpotList, getSpookySpotListItem } from "../controllers/SpookySpotListController";
+import {
+  createSpookySpotListItem,
+  deleteSpookySpotListItem,
+  editSpookySpotListItem,
+  getSpookySpotList,
+  getSpookySpotListItem,
+} from "../controllers/SpookySpotListController";
+import {
+  createCommunitySubject,
+  getAllCommunitySubjects,
+  getOneCommunitySubject,
+} from "../controllers/CommunitySubjectController";
 
 const router = Router();
 
@@ -66,14 +85,23 @@ router.put("/user/change-email", authorization, changeEmail);
 router.get("/get-list", authorization, getSpookySpotList);
 router.get("/get-list/:listItemId", authorization, getSpookySpotListItem);
 router.patch("/create-list-item", authorization, createSpookySpotListItem);
-router.patch("/edit-list-item/:userId/:listItemId", authorization, editSpookySpotListItem);
-router.put("/delete-list-item/:userId/:listItemId", authorization, deleteSpookySpotListItem);
-
-
-
-
+router.patch(
+  "/edit-list-item/:userId/:listItemId",
+  authorization,
+  editSpookySpotListItem
+);
+router.put(
+  "/delete-list-item/:userId/:listItemId",
+  authorization,
+  deleteSpookySpotListItem
+);
 
 // Spooky spot routes
 router.delete("/spookyspots/:spookySpot", authorization, deleteSpookySpot);
+
+// Community routes
+router.post("/communitysubjects", authorization, createCommunitySubject);
+router.get("/communitysubjects", authorization, getAllCommunitySubjects);
+router.get("/communitysubjects/:id", authorization, getOneCommunitySubject);
 
 export default router;
