@@ -14,6 +14,7 @@ interface IUser {
     email: string;
     isAdmin: boolean;
     spookySpotList: Types.DocumentArray<ISpookySpotListItem>
+    posts?: Array<object>;
 }
 
 const UserSchema: Schema = new Schema<IUser>({
@@ -50,6 +51,12 @@ const UserSchema: Schema = new Schema<IUser>({
         required: false
 
     },
+    posts: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: "Post",
+        },
+      ],
     resetPasswordToken: String,
     resetPasswordExpire: String,
 });
