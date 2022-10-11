@@ -38,6 +38,7 @@ import {
   getAllCommunitySubjects,
   getOneCommunitySubject,
 } from "../controllers/CommunitySubjectController";
+import { createCommunityThread, getCommunityThread, getCommunityThreads } from "../controllers/CommunityThreadController";
 
 const router = Router();
 
@@ -103,5 +104,11 @@ router.delete("/spookyspots/:spookySpot", authorization, deleteSpookySpot);
 router.post("/communitysubjects", authorization, createCommunitySubject);
 router.get("/communitysubjects", authorization, getAllCommunitySubjects);
 router.get("/communitysubjects/:id", authorization, getOneCommunitySubject);
+
+router.post("/communitysubjects/:id/threads", authorization, createCommunityThread);
+router.get("/communitysubjects/:id/threads", authorization, getCommunityThreads);
+router.get("/communitythreads/:id", authorization, getCommunityThread);
+
+
 
 export default router;
