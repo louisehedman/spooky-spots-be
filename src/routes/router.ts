@@ -38,8 +38,24 @@ import {
   getAllCommunitySubjects,
   getOneCommunitySubject,
 } from "../controllers/CommunitySubjectController";
-import { createCommunityThread, getCommunityThread, getCommunityThreads } from "../controllers/CommunityThreadController";
-import { createPost, deletePost, editPost, getPost, getPosts } from "../controllers/PostController";
+import {
+  createCommunityThread,
+  getCommunityThread,
+  getCommunityThreads,
+} from "../controllers/CommunityThreadController";
+import {
+  createPost,
+  deletePost,
+  editPost,
+  getPost,
+  getPosts,
+} from "../controllers/PostController";
+import {
+  createComment,
+  deleteComment,
+  editComment,
+  getComments,
+} from "../controllers/CommentController";
 
 const router = Router();
 
@@ -106,19 +122,27 @@ router.post("/communitysubjects", authorization, createCommunitySubject);
 router.get("/communitysubjects", authorization, getAllCommunitySubjects);
 router.get("/communitysubjects/:id", authorization, getOneCommunitySubject);
 
-router.post("/communitysubjects/:id/threads", authorization, createCommunityThread);
-router.get("/communitysubjects/:id/threads", authorization, getCommunityThreads);
+router.post(
+  "/communitysubjects/:id/threads",
+  authorization,
+  createCommunityThread
+);
+router.get(
+  "/communitysubjects/:id/threads",
+  authorization,
+  getCommunityThreads
+);
 router.get("/communitythreads/:id", authorization, getCommunityThread);
 
 router.post("/communitythreads/:id/posts", authorization, createPost);
 router.get("/communitythreads/:id/posts", authorization, getPosts);
 router.get("/posts/:id", authorization, getPost);
-router.delete("/posts/:id", authorization, deletePost);
 router.put("/posts/:id", authorization, editPost);
+router.delete("/posts/:id", authorization, deletePost);
 
-
-
-
-
+router.post("/posts/:id/comments", authorization, createComment);
+router.get("/posts/:id/comments", authorization, getComments);
+router.put("/comments/:id", authorization, editComment);
+router.delete("/comments/:id", authorization, deleteComment);
 
 export default router;
