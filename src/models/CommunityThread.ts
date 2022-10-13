@@ -1,4 +1,5 @@
-import mongoose, { Schema, Document, ObjectId } from "mongoose";
+import mongoose, { Schema, Document, ObjectId, Types } from "mongoose";
+import { IPost } from "./Post";
 
 // Interface for CommunityThread
 export interface ICommunityThread extends Document {
@@ -7,6 +8,7 @@ export interface ICommunityThread extends Document {
   title: string;
   createdAt: Date;
   user: string;
+  posts: Types.DocumentArray<IPost>;
 }
 
 const CommunityThreadSchema: Schema = new Schema({

@@ -1,14 +1,19 @@
-import mongoose, { Schema, Document, Types } from "mongoose";
+import mongoose, { Schema, Document, Types, ObjectId } from "mongoose";
 import { ICommunityThread } from "./CommunityThread";
 
 // Interface for CommunitySubject
 export interface ICommunitySubject extends Document {
+  _id: ObjectId;
   title: string;
+  description: string;
   threads: Types.DocumentArray<ICommunityThread>;
 }
 
 const CommunitySubjectSchema: Schema = new Schema({
   title: {
+    type: String,
+  },
+  description: {
     type: String,
   },
   threads: [

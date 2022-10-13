@@ -11,12 +11,12 @@ const getCommunityThreads: RequestHandler = async (
   res: Response
 ) => {
   const currentThread = await CommunityThread.find({
-    subjectID: req.params.id,
+    subjectID: req.params.id
   }).sort({ createdAt: -1 });
   if (currentThread) {
-    res.status(200).json(currentThread);
+    return res.status(200).json(currentThread);
   } else {
-    res.status(404).json({ message: "No thread found" });
+    return res.status(404).json({ message: "No thread found" });
   }
 };
 
