@@ -5,9 +5,7 @@ import User from "../models/User";
 
 // Get comments by post id
 const getComments: RequestHandler = async (req: Request, res: Response) => {
-  const currentComment = await Comment.find({ postID: req.params.id }).sort({
-    createdAt: -1,
-  });
+  const currentComment = await Comment.find({ postID: req.params.id });
   if (currentComment) {
     res.status(200).json(currentComment);
   } else {

@@ -1,6 +1,4 @@
 import { Request, RequestHandler, Response } from "express";
-import Comment from "../models/Comment";
-import CommunitySubject from "../models/CommunitySubject";
 import CommunityThread from "../models/CommunityThread";
 import Post, { IPost } from "../models/Post";
 import User from "../models/User";
@@ -9,7 +7,7 @@ import User from "../models/User";
 const getPosts: RequestHandler = async (req: Request, res: Response) => {
   const currentPost = await Post.find({
     threadID: req.params.id,
-  }).sort({ createdAt: -1 });
+  });
   if (currentPost) {
     res.status(200).json(currentPost);
   } else {
