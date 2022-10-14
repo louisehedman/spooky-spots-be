@@ -9,11 +9,11 @@ interface IUser {
     resetPasswordToken: string|undefined;
     resetPasswordExpire: string|undefined;
     username: string;
-    avatar?: string;
     password: string;
     email: string;
     isAdmin: boolean;
     spookySpotList: Types.DocumentArray<ISpookySpotListItem>
+    posts?: Array<object>;
 }
 
 const UserSchema: Schema = new Schema<IUser>({
@@ -22,10 +22,6 @@ const UserSchema: Schema = new Schema<IUser>({
         required: [true, "Can't be blank"],
         unique: true,
         index: true,
-    },
-    avatar: {
-        type: String,
-        default: "",
     },
     password: {
         type: String,
@@ -50,6 +46,12 @@ const UserSchema: Schema = new Schema<IUser>({
         required: false
 
     },
+    posts: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: "Post",
+        },
+      ],
     resetPasswordToken: String,
     resetPasswordExpire: String,
 });
