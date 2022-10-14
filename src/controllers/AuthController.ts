@@ -43,7 +43,6 @@ const register = async (req: Request, res: Response, next: any) => {
             sameSite: "none",
             secure: true,
             path: "/",
-            //maxAge: 365 * 24 * 60 * 60,
           })
           .status(200)
           .json({ success: true, username: user.username, isAdmin: user.isAdmin });

@@ -9,7 +9,6 @@ interface IUser {
     resetPasswordToken: string|undefined;
     resetPasswordExpire: string|undefined;
     username: string;
-    avatar?: string;
     password: string;
     email: string;
     isAdmin: boolean;
@@ -23,10 +22,6 @@ const UserSchema: Schema = new Schema<IUser>({
         required: [true, "Can't be blank"],
         unique: true,
         index: true,
-    },
-    avatar: {
-        type: String,
-        default: "",
     },
     password: {
         type: String,
