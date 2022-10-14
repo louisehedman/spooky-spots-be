@@ -46,8 +46,8 @@ const getAllCommunitySubjects = async (req: Request, res: Response) => {
 // Get one community subject
 const getOneCommunitySubject = async (req: Request, res: Response) => {
   const condition = () => {
-    if (mongoose.isValidObjectId(req.params.communitySubject)) {
-      return { _id: new ObjectId(req.params.communitySubject) };
+    if (mongoose.isValidObjectId(req.params.id)) {
+      return { _id: new ObjectId(req.params.id) };
     }
   };
 
