@@ -11,7 +11,7 @@
             61.787859
             ]
         },
-        "description": "Description Vargtimmesgården Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+        "description": "In the heart of Härjedalen in Sweden you can find Vargtimmesgården. This is a name that gives associations to the time of the night when ghosts are as most active. It was built in 1902 and it has had many visitors during the years. Some people come by here by mistake when hiking in the area. Despite the name it is not really much activity in a spooky manner, orbs and funnels are the ghost types associated with this place. It is a good first place to visit as a newbie ghost hunter!",
         "image": "https://cdn.pixabay.com/photo/2020/02/08/16/14/house-4830491_1280.jpg",
         "createdAt": "2022-09-22T07:16:07.144Z",
         "rating": 2,
@@ -32,7 +32,7 @@
             53.711011
             ]
         },
-        "description": "Description Seamans nightmare Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+        "description": "This place has a very spooky story and we have to warn you if you decide to visit! Rumors say that in windy weather you can see a very beautiful lady in a white dress standing at the shore trying to attract seamen. The ones that most likely have gone ashore have never been seen again, only their abandoned ship has been found drifting on the sea. When our ghost hunters visited this place they had an experience they will never forget, so much activity! There was someone suddenly playing the piano in the empty living room, things being thrown down the stairs, someone screaming and a lady figure in a white dress being seen several times. We would only recommend this place for really experienced ghost hunters and never go here alone.",
         "image": "https://cdn.pixabay.com/photo/2017/06/23/21/56/home-2436063_1280.jpg",
         "createdAt": "2022-08-29T10:38:14.213Z",
         "rating": 5,
@@ -55,13 +55,55 @@
             56.2970676
             ]
         },
-        "description": "Description Hundpalatset Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+        "description": "What a place, so many dogs, ghost dogs! All kinds of passed dogs are staying here, and really likes to interact with the visitors. A king poodle is especially known for making himself known, he usually sneaks up on the visitor from behind and gives you a little bump in the back, hoping to see you jump up in the air in surprise. Other dogs are just longing for hugs and cuddles. Lie down on the bed or wait in one of the sofas and prepare for a cuddle attack. Is something in your pocket suddenly missing? Most likely one of the dogs hiding it from you, look in the flowerbed to the left on your way out, it is where they like to hide the things they get hold of.",
         "image": "https://cdn.pixabay.com/photo/2016/08/14/17/02/haunted-house-1593395_1280.jpg",
-        "createdAt": "2022-09-23T10:12:17.233Z",
+        "createdAt": "2022-10-05T10:12:17.233Z",
         "rating": 3,
         "ghostTypes": [
             {"type": "Interactive"},
             {"type": "Orb"}
+        ]
+    },
+    {
+        "name": "Calico Restaurant",
+        "address": "Camino de los muertos 12",
+        "postalCode": "FHX7 Nuevo Leon",
+        "country": "Mexico",
+        "location": {
+            "type" : "Point",
+        "coordinates" : [
+            -100.398402,
+            25.488589
+            ]
+        },
+        "description": "Prepare for the most eventful restaurant visit of your life. Never trust your eyes. Sometimes the waiter is a real one, sometimes a ghost. If you have to visit the ladies room, watch out for the skeleton in the mirror, the poor ones that have seen it have never been themselves again. The ghosts like to prank you with the food, this particularly applies to the corn cubs, they sometimes replace them with plastic ones. Considering all the unusual things that happen here, it is well worth a visit.",
+        "image": "https://cdn.pixabay.com/photo/2011/01/17/16/40/calico-4530_960_720.jpg",
+        "createdAt": "2022-09-17T19:17:36.233Z",
+        "rating": 4,
+        "ghostTypes": [
+            {"type": "Interactive"},
+            {"type": "Poltergeist"}
+        ]
+    },
+    {
+        "name": "Porcelain dollhouse",
+        "address": "Shinsetsuna 44",
+        "postalCode": "Matsumoto, Nagano",
+        "country": "Japan",
+        "location": {
+            "type" : "Point",
+        "coordinates" : [
+            137.5607316,
+            36.1942238
+            ]
+        },
+        "description": "In this house there are more porcelain dolls than you have ever seen in total in your life, and no one can explain how they ended up there. To make it more creepy most of them want your attention, they make you feel drawn to them without you knowing how. Take a close look at their little eyes, they follow each of your steps. Despite this, they are not threatening, but it can feel safe to have a friend holding your hand during your stay. The dolls welcome you and look forward to your visit.",
+        "image": "https://cdn.pixabay.com/photo/2021/01/19/14/45/alley-5931413_960_720.jpg",
+        "createdAt": "2022-09-26T14:11:05.233Z",
+        "rating": 3,
+        "ghostTypes": [
+            {"type": "Interactive"},
+            {"type": "Ectoplasm"}
         ]
     }
 ]
