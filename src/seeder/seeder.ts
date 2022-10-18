@@ -7,7 +7,7 @@ import SpookySpot from "../models/SpookySpot";
 const seedGhostTypes = async () => {
     const db = mongoose.connection;
     const ghostTypes = JSON.parse(
-      fs.readFileSync(__dirname + "/ghostTypes.json", "utf-8")
+      fs.readFileSync(__dirname + "/ghosttypes.json", "utf-8")
     );
     try {
       await db
@@ -27,7 +27,7 @@ const seedGhostTypes = async () => {
   const seedSpookySpots = async () => {
     const db = mongoose.connection;
     const spookySpots = JSON.parse(
-      fs.readFileSync(__dirname + "/spookySpots.json", "utf-8")
+      fs.readFileSync(__dirname + "/spookyspots.json", "utf-8")
     );
     try {
       await db
