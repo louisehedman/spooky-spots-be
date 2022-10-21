@@ -7,7 +7,7 @@ const register = async (req: Request, res: Response, next: any) => {
     try {
       const user = await User.create(req.body);
       user.save().then(() => {
-        res.status(200).json({ message: "User created" });
+        res.status(201).json({ message: "User created" });
       });
     } catch (error: any) {
       res.status(500).json(error.message);

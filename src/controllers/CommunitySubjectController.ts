@@ -12,7 +12,7 @@ const createCommunitySubject = async (req: Request, res: Response) => {
     if (user.isAdmin === true) {
     const communitySubject = await CommunitySubject.create(req.body);
     communitySubject.save().then(() => {
-      res.status(200).json({ message: "Community subject created" });
+      res.status(201).json({ message: "Community subject created" });
     });
   }  else {
     res.status(400).json({ message: "You are not allowed to create community subjects" });
