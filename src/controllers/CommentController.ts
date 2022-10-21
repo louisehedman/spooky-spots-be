@@ -32,7 +32,7 @@ const createComment = async (req: Request, res: Response) => {
     const savedComment = await newComment.save();
 
     if (savedComment) {
-      res.status(200).json({ message: "Comment created successfully" });
+      res.status(201).json({ message: "Comment created successfully" });
     }
   } else {
     res.status(404).json({ message: "Comment not created" });

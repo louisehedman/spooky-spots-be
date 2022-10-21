@@ -61,7 +61,7 @@ const createCommunityThread = async (req: Request, res: Response) => {
     const savedCommunityThread = await newCommunityThread.save();
 
     if (savedCommunityThread) {
-      res.status(200).json({ message: "Thread created successfully" });
+      res.status(201).json({ message: "Thread created successfully" });
     }
   } else {
     res.status(404).json({ message: "Thread not created" });

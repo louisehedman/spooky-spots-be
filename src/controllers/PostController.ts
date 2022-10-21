@@ -47,7 +47,7 @@ const createPost = async (req: Request, res: Response) => {
     const pushedPost = await user.save();
 
     if (savedPost && pushedPost) {
-      res.status(200).json({ message: "Post created successfully" });
+      res.status(201).json({ message: "Post created successfully" });
     }
   } else {
     res.status(404).json({ message: "Post not created" });
@@ -79,7 +79,7 @@ const editPost = async (req: Request, res: Response) => {
   }
 };
 
-// delete a post
+// Delete a post
 const deletePost = async (req: Request, res: Response) => {
   try {
     const user = await User.findById(req.body.id);

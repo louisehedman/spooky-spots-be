@@ -2,14 +2,21 @@ import { Response, Request } from "express";
 import { ObjectId } from "mongodb";
 import mongoose from "mongoose";
 import SpookySpot from "../models/SpookySpot";
+import User from "../models/User";
 
 // Add spooky spot
 const createSpookySpot = async (req: Request, res: Response, next: any) => {
   try {
+    const user = await User.findById(req.body.id);
+    // Only admins are allowed to create SpookySpots
+    if (user.isAdmin === true) {
     const spookySpot = await SpookySpot.create(req.body);
     spookySpot.save().then(() => {
-      res.status(200).json({ message: "Spooky spot created" });
+      res.status(201).json({ message: "Spooky spot created" });
     });
+  }  else {
+    res.status(400).json({ message: "You are not allowed to create SpookySpots" });
+  }
   } catch (error: any) {
     res.status(500).json(error.message);
   }

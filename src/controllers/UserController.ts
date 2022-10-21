@@ -124,12 +124,12 @@ const changePassword = async (req: Request, res: Response) => {
       const password = await bcrypt.hash(req.body.password, salt);
       const confirmPassword = await bcrypt.hash(req.body.confirmPassword, salt);
       if (password === confirmPassword) {
-        const userPassword = await User.findByIdAndUpdate(
+        await User.findByIdAndUpdate(
           { _id: user.id },
           { password: password, confirmPassword: confirmPassword },
           { new: true }
         );
-        return res.status(200).json({ status: true, data: userPassword });
+        return res.status(200).json({ status: true, message: "Password changed successfully" });
       } else {
         return res.status(401).json({
           status: false,

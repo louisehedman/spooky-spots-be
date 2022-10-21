@@ -1,61 +1,14 @@
 import { Router } from "express";
 import cors, { CorsOptions } from "cors";
-import {
-  register,
-  login,
-  logout,
-  authorization,
-} from "../controllers/AuthController";
-import {
-  changeEmail,
-  changePassword,
-  deleteUser,
-  editUser,
-  getAllUsers,
-  getOneUser,
-  getUser,
-} from "../controllers/UserController";
-import {
-  createSpookySpot,
-  deleteSpookySpot,
-  getAllSpookySpots,
-  getSpookySpot,
-} from "../controllers/SpookySpotController";
-import {
-  createGhostType,
-  getAllGhostTypes,
-  getGhostType,
-} from "../controllers/GhostTypeController";
-import {
-  createSpookySpotListItem,
-  deleteSpookySpotListItem,
-  editSpookySpotListItem,
-  getSpookySpotList,
-  getSpookySpotListItem,
-} from "../controllers/SpookySpotListController";
-import {
-  createCommunitySubject,
-  getAllCommunitySubjects,
-  getOneCommunitySubject,
-} from "../controllers/CommunitySubjectController";
-import {
-  createCommunityThread,
-  getCommunityThread,
-  getCommunityThreads,
-} from "../controllers/CommunityThreadController";
-import {
-  createPost,
-  deletePost,
-  editPost,
-  getPost,
-  getPosts,
-} from "../controllers/PostController";
-import {
-  createComment,
-  deleteComment,
-  editComment,
-  getComments,
-} from "../controllers/CommentController";
+import { register, login, logout, authorization, } from "../controllers/AuthController";
+import { changeEmail, changePassword, deleteUser, editUser, getAllUsers, getOneUser, getUser, } from "../controllers/UserController";
+import { createSpookySpot, deleteSpookySpot, getAllSpookySpots, getSpookySpot,} from "../controllers/SpookySpotController";
+import { createGhostType, getAllGhostTypes, getGhostType, } from "../controllers/GhostTypeController";
+import { createSpookySpotListItem, deleteSpookySpotListItem, editSpookySpotListItem, getSpookySpotList, getSpookySpotListItem, } from "../controllers/SpookySpotListController";
+import { createCommunitySubject, getAllCommunitySubjects, getOneCommunitySubject, } from "../controllers/CommunitySubjectController";
+import { createCommunityThread, getCommunityThread, getCommunityThreads, } from "../controllers/CommunityThreadController";
+import { createPost, deletePost, editPost, getPost, getPosts, } from "../controllers/PostController";
+import { createComment, deleteComment, editComment, getComments, } from "../controllers/CommentController";
 
 const router = Router();
 
@@ -76,12 +29,10 @@ router.post("/register", register);
 router.post("/login", login);
 
 // Spooky spot routes
-router.post("/spookyspots", createSpookySpot);
 router.get("/spookyspots", getAllSpookySpots);
 router.get("/spookyspots/:spookySpot", getSpookySpot);
 
 // Ghost type routes
-router.post("/ghosttypes", createGhostType);
 router.get("/ghosttypes", getAllGhostTypes);
 router.get("/ghosttypes/:ghostType", getGhostType);
 
@@ -90,48 +41,38 @@ router.get("/ghosttypes/:ghostType", getGhostType);
 // Auth routes
 router.post("/logout", authorization, logout);
 
-//Users routes
-router.get("/users", authorization, getAllUsers);
+// Spooky spot routes
+router.post("/spookyspots", authorization, createSpookySpot);
+router.delete("/spookyspots/:spookySpot", authorization, deleteSpookySpot);
+
+// Ghost type routes
+router.post("/ghosttypes", authorization, createGhostType);
+
+// User routes (signed in user)
 router.get("/user", authorization, getUser);
-router.get("/users/:id", authorization, getOneUser);
-router.delete("/users/:id", authorization, deleteUser);
-router.put("/users/:id", authorization, editUser);
 router.put("/user/change-password", authorization, changePassword);
 router.put("/user/change-email", authorization, changeEmail);
 
-// SpookySpotList routes
+// User SpookySpotList routes
 router.get("/get-list", authorization, getSpookySpotList);
 router.get("/get-list/:listItemId", authorization, getSpookySpotListItem);
 router.patch("/create-list-item", authorization, createSpookySpotListItem);
-router.patch(
-  "/edit-list-item/:userId/:listItemId",
-  authorization,
-  editSpookySpotListItem
-);
-router.put(
-  "/delete-list-item/:userId/:listItemId",
-  authorization,
-  deleteSpookySpotListItem
-);
+router.patch("/edit-list-item/:userId/:listItemId", authorization, editSpookySpotListItem);
+router.put("/delete-list-item/:userId/:listItemId", authorization, deleteSpookySpotListItem);
 
-// Spooky spot routes
-router.delete("/spookyspots/:spookySpot", authorization, deleteSpookySpot);
+//Users routes
+router.get("/users", authorization, getAllUsers);
+router.get("/users/:id", authorization, getOneUser);
+router.put("/users/:id", authorization, editUser);
+router.delete("/users/:id", authorization, deleteUser);
 
 // Community routes
 router.post("/communitysubjects", authorization, createCommunitySubject);
 router.get("/communitysubjects", authorization, getAllCommunitySubjects);
 router.get("/communitysubjects/:id", authorization, getOneCommunitySubject);
 
-router.post(
-  "/communitysubjects/:id/threads",
-  authorization,
-  createCommunityThread
-);
-router.get(
-  "/communitysubjects/:id/threads",
-  authorization,
-  getCommunityThreads
-);
+router.post("/communitysubjects/:id/threads", authorization, createCommunityThread);
+router.get("/communitysubjects/:id/threads", authorization, getCommunityThreads);
 router.get("/communitythreads/:id", authorization, getCommunityThread);
 
 router.post("/communitythreads/:id/posts", authorization, createPost);
