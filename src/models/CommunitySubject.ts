@@ -1,7 +1,6 @@
 import mongoose, { Schema, Document, Types, ObjectId } from "mongoose";
 import { ICommunityThread } from "./CommunityThread";
 
-// Interface for CommunitySubject
 export interface ICommunitySubject extends Document {
   _id: ObjectId;
   title: string;
