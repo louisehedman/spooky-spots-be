@@ -1,6 +1,7 @@
 import { Schema } from "mongoose";
 import { ObjectId } from "mongodb";
 
+// Declare list item type
 interface ISpookySpotListItem {
   _id: ObjectId;
   spookySpotId: ObjectId;
@@ -8,6 +9,7 @@ interface ISpookySpotListItem {
   comment: string;
 }
 
+// Define list item schema
 const SpookySpotListItemSchema: Schema = new Schema<ISpookySpotListItem>({
     spookySpotId: {
         type: ObjectId,

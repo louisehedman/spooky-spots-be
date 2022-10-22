@@ -1,10 +1,12 @@
 import mongoose, { ObjectId, Schema } from "mongoose";
 
+// Declare GhostType type
 interface IGhostType {
     type: string;
     description: string;
 }
 
+// Define GhostType schema
 const GhostTypeSchema: Schema = new Schema<IGhostType>({
     type: {
         type: String,

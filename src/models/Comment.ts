@@ -1,5 +1,6 @@
 import mongoose, { Schema, Document, ObjectId } from "mongoose";
 
+// Declare comment type
 export interface IComment extends Document {
   _id: ObjectId;
   postID: string;
@@ -9,6 +10,7 @@ export interface IComment extends Document {
   createdAt: Date;
 }
 
+// Define comment schema
 const CommentSchema: Schema = new Schema({
   username: { type: String, required: true },
   content: { type: String, required: true },

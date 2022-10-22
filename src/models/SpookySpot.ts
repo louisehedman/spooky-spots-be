@@ -1,5 +1,6 @@
 import mongoose, { Schema, Types } from "mongoose";
 
+// Declare SpookySpot type
 interface ISpookySpot {
   name: string;
   address: string;
@@ -18,6 +19,7 @@ interface ISpookySpot {
   ghostTypes: Types.Array<object>;
 }
 
+// Define SpookySpot schema
 const SpookySpotSchema: Schema = new Schema<ISpookySpot>({
   name: {
     type: String,

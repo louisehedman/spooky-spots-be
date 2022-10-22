@@ -1,7 +1,7 @@
 import mongoose, { Schema, Document, ObjectId, Types } from "mongoose";
 import { IPost } from "./Post";
 
-// Interface for CommunityThread
+// Declare CommunityThread type
 export interface ICommunityThread extends Document {
   _id: ObjectId;
   subjectID: string;
@@ -11,6 +11,7 @@ export interface ICommunityThread extends Document {
   posts: Types.DocumentArray<IPost>;
 }
 
+// Define CommunityThread schema
 const CommunityThreadSchema: Schema = new Schema({
   title: {
     type: String,

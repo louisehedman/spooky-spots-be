@@ -1,5 +1,6 @@
 import mongoose, { Schema, Document, ObjectId } from "mongoose";
 
+// Declare post type
 export interface IPost extends Document {
   _id: ObjectId;
   threadID: string;
@@ -10,6 +11,7 @@ export interface IPost extends Document {
   user: string;
 }
 
+// Define post schema
 const PostSchema: Schema = new Schema(
   {
     threadID: { type: Schema.Types.ObjectId, ref: "CommunityThread" },
