@@ -1,6 +1,6 @@
 import { Router } from "express";
 import cors, { CorsOptions } from "cors";
-import { register, login, logout, authorization, } from "../controllers/AuthController";
+import { register, login, logout, authorization, forgotPassword, resetPassword, } from "../controllers/AuthController";
 import { changeEmail, changePassword, deleteUser, editUser, getAllUsers, getOneUser, getUser, } from "../controllers/UserController";
 import { createSpookySpot, deleteSpookySpot, getAllSpookySpots, getSpookySpot,} from "../controllers/SpookySpotController";
 import { createGhostType, getAllGhostTypes, getGhostType, } from "../controllers/GhostTypeController";
@@ -27,6 +27,8 @@ router.use(cors(corsOptions));
 // Auth routes
 router.post("/register", register);
 router.post("/login", login);
+router.post("/forgotpassword", forgotPassword);
+router.put("/resetpassword/:resetToken", resetPassword);
 
 // Spooky spot routes
 router.get("/spookyspots", getAllSpookySpots);
