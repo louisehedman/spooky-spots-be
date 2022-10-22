@@ -1,6 +1,7 @@
 import mongoose, { Schema, Document, Types, ObjectId } from "mongoose";
 import { ICommunityThread } from "./CommunityThread";
 
+// Declare CommunitySubject type
 export interface ICommunitySubject extends Document {
   _id: ObjectId;
   title: string;
@@ -8,6 +9,7 @@ export interface ICommunitySubject extends Document {
   threads: Types.DocumentArray<ICommunityThread>;
 }
 
+// Define CommunitySubject schema
 const CommunitySubjectSchema: Schema = new Schema({
   title: {
     type: String,
