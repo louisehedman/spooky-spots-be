@@ -11,7 +11,12 @@ export const sendEmail = async (options: Options) => {
   let transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
     port: Number(process.env.EMAIL_PORT),
-    secure: false,
+    /* Outlook require secure false (Gmail require true and some other configuration), 
+    but require tls below for cryptation instead (in received email header you can see it got cryptated)*/
+    secure: false, 
+    pool: true, // enable sending several emails at once
+    maxConnections: 20, // number of simultaneous connections against SMTP server
+    maxMessages: Infinity, // maximum numbers of emails that can be sent at once
     tls: {
       ciphers: "SSLv3",
     },
