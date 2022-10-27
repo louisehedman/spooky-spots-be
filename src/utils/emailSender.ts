@@ -15,7 +15,7 @@ export const sendEmail = async (options: Options) => {
     but require tls below for cryptation instead (in received email header you can see it got cryptated)*/
     secure: false, 
     pool: true, // enable sending several emails at once
-    maxConnections: 20, // number of simultaneous connections against SMTP server
+    maxConnections: 3, // number of simultaneous connections against SMTP server
     maxMessages: Infinity, // maximum numbers of emails that can be sent at once
     tls: {
       ciphers: "SSLv3",
@@ -40,5 +40,6 @@ export const sendEmail = async (options: Options) => {
     } else {
       console.log(info);
     }
+    transporter.close()
   });
 };
