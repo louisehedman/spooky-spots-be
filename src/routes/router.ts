@@ -9,7 +9,7 @@ import { createCommunitySubject, getAllCommunitySubjects, getOneCommunitySubject
 import { createCommunityThread, getCommunityThread, getCommunityThreads, } from "../controllers/CommunityThreadController";
 import { createPost, deletePost, editPost, getPost, getPosts, } from "../controllers/PostController";
 import { createComment, deleteComment, editComment, getComments, } from "../controllers/CommentController";
-import { sendNewsletter, subscribe, unSubscribe } from "../controllers/NewsletterController";
+import { getNewsletter, getNewsletters, getSubscribers, sendNewsletter, subscribe, unSubscribe } from "../controllers/NewsletterController";
 
 
 
@@ -42,6 +42,8 @@ router.get("/ghosttypes", getAllGhostTypes);
 router.get("/ghosttypes/:ghostType", getGhostType);
 
 // Newsletter routes
+router.get("/newsletters", getNewsletters);
+router.get("/newsletters/:newsLetter", getNewsletter);
 router.post("/subscriptionlist", subscribe);
 router.delete("/subscriptionlist/:email", unSubscribe);
 
@@ -96,6 +98,7 @@ router.put("/comments/:id", authorization, editComment);
 router.delete("/comments/:id", authorization, deleteComment);
 
 // Newsletter routes
+router.get("/subscriptionlist", authorization, getSubscribers);
 router.post("/newsletter", authorization, sendNewsletter);
 
 export default router;
