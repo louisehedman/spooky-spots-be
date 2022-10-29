@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 
-interface Options {
+export interface Options {
   to: string;
   subject: string;
   text: string;
@@ -9,21 +9,19 @@ interface Options {
 export const sendEmail = async (options: Options) => {
   // Create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
-    host: process.env.EMAIL_HOST,
+    host: process.env.AWS_REGION,
     port: Number(process.env.EMAIL_PORT),
-    /* Outlook require secure false (Gmail require true and some other configuration), 
-    but require tls below for cryptation instead (in received email header you can see it got cryptated)*/
-    secure: false, 
+    /* Makes email get cryptated by TLS,
+    in received email header you can see it got cryptated*/
+    secure: true,
     pool: true, // enable sending several emails at once
-    maxConnections: 3, // number of simultaneous connections against SMTP server
+    maxConnections: 20, // number of simultaneous connections against SMTP server
     maxMessages: Infinity, // maximum numbers of emails that can be sent at once
-    tls: {
-      ciphers: "SSLv3",
-    },
     auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
+      user: process.env.AWS_ACCESS_KEY_ID,
+      pass: process.env.AWS_SECRET_ACCESS_KEY,
     },
+    debug: true,
   });
 
   // Send email with defined transport object
@@ -40,6 +38,6 @@ export const sendEmail = async (options: Options) => {
     } else {
       console.log(info);
     }
-    transporter.close()
+    transporter.close();
   });
 };
