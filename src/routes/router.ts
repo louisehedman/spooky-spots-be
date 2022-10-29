@@ -99,6 +99,6 @@ router.delete("/comments/:id", authorization, deleteComment);
 
 // Newsletter routes
 router.get("/subscriptionlist", authorization, getSubscribers);
-router.post("/newsletter", authorization, sendNewsletter);
+router.post("/newsletters", authorization, sendNewsletter);
 
 export default router;
