@@ -9,6 +9,9 @@ import { createCommunitySubject, getAllCommunitySubjects, getOneCommunitySubject
 import { createCommunityThread, getCommunityThread, getCommunityThreads, } from "../controllers/CommunityThreadController";
 import { createPost, deletePost, editPost, getPost, getPosts, } from "../controllers/PostController";
 import { createComment, deleteComment, editComment, getComments, } from "../controllers/CommentController";
+import { getNewsletter, getNewsletters, getSubscribers, sendNewsletter, subscribe, unSubscribe } from "../controllers/NewsletterController";
+
+
 
 const router = Router();
 
@@ -37,6 +40,12 @@ router.get("/spookyspots/:spookySpot", getSpookySpot);
 // Ghost type routes
 router.get("/ghosttypes", getAllGhostTypes);
 router.get("/ghosttypes/:ghostType", getGhostType);
+
+// Newsletter routes
+router.get("/newsletters", getNewsletters);
+router.get("/newsletters/:newsLetter", getNewsletter);
+router.post("/subscriptionlist", subscribe);
+router.delete("/subscriptionlist/:email", unSubscribe);
 
 // **Protected routes**
 
@@ -87,5 +96,9 @@ router.post("/posts/:id/comments", authorization, createComment);
 router.get("/posts/:id/comments", authorization, getComments);
 router.put("/comments/:id", authorization, editComment);
 router.delete("/comments/:id", authorization, deleteComment);
+
+// Newsletter routes
+router.get("/subscriptionlist", authorization, getSubscribers);
+router.post("/newsletters", authorization, sendNewsletter);
 
 export default router;
