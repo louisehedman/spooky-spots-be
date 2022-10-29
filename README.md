@@ -83,7 +83,7 @@ $ npm start
 
 ## **API reference**
 
-Full API documentation created with Insomnia is found here: **link**
+Full API documentation created with Insomnia is found here: [https://spookyspots-api.netlify.app/](<https://spookyspots-api.netlify.app/>)
 
 ---
 

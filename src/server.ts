@@ -18,7 +18,15 @@ app.use(morgan('tiny'));
 app.use("/", router);
 
 router.get('/', (req: Request, res: Response) => {
-  res.send(listEndpoints(app))
+  let text = '';
+  // Link to API documentation
+  text += '<a style="font-family:arial;font-size:2em" href=\"https://spookyspots-api.netlify.app/\">Go to API documentation</a>';
+  text += '<div style="font-family:courier;">';
+  text += '<p style="font-family:arial; font-size:2em">Available routes:</p>';
+  // List all available endpoints
+  listEndpoints(app).forEach(endpoint => {text += `<p>${JSON.stringify(endpoint)}</p>`});
+  text += '</div>'
+  res.send(text);
 })
 
 app.listen(PORT, () => {
