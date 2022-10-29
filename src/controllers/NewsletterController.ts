@@ -58,15 +58,15 @@ const sendNewsletter = async (req: Request, res: Response, next: any) => {
           to: receiver.email,
           text:
             newsMessage +
-            `<p>Don't want to receive emails anymore?</p>
+            `<br><p>Don't want to receive these newsletters anymore?</p>
           <a href=${unsubscribeUrl}/${receiver.email} clickTracking=off>Unsubscribe</a>`,
           subject: newsSubject,
         });
-      })
-      
+      });
+
       // Save newsletter subject and message in database
       newsletter.save({ validateBeforeSave: false });
-      
+
       res.status(200).json({
         success: true,
         message: "Newsletter sent and saved",
@@ -114,7 +114,7 @@ const subscribe = async (req: Request, res: Response) => {
       }
     } else {
       res
-        .status(201)
+        .status(302)
         .json({ success: false, message: "You have already subscribed" });
     }
   } catch (e) {
