@@ -96,14 +96,15 @@ Server.ts is where all the magic happens, database connection, routing and more,
 Here you find the connection to the database. DB_URI to MongoDB (local or in cloud) need to be specified in `.env`. 
 
 ## Models
-The models available are User, **SubscriptionList** SpookySpot, SpookySpotListItem, GhostType, CommunitySubject, CommunityThread, Post and Comment. You can see their relation to each other in the ER diagram below. 
+The models available are User, Subscription, Newsletter, SpookySpot, SpookySpotListItem, GhostType, CommunitySubject, CommunityThread, Post and Comment. You can see their relation to each other in the ER diagram below. 
 
 ## Controllers
 `The controllers available are`
 - AuthController: Contains endpoints for register, login, logout, forgot password, reset password and authorization middleware.
 - UserController: Endpoints to get signed in user, change email and password (while signed in). Also endpoints to get all users and one, update a user and delete a user (only admins have access to these).
 - SpookySpotController: Endpoints to get all and one SpookySpot. Also endpoints to create and delete a SpookySpot (only admins have access). 
-- SpookySpotListController: Endpoints related to the signed in users personal SpookySpotList.    
+- SpookySpotListController: Endpoints related to the signed in users personal SpookySpotList.  
+- NewsletterController: Endpoints to subscribe and unsubscribe to newsletter, send newsletter (only admins have access), get all and get one archived newsletters.  
 `Community controllers below are restricted to signed in users`
 - CommunitySubjectController: Endpoints to get all and one community subjects. Also an endpoint to create a subject (admin access only).
 - CommunityThreadController: Endpoints to create a thread, get all threads within a subject, get one thread. 
@@ -117,13 +118,11 @@ Here you find all the routes with connection to endpoints in controllers. They a
 See description above in get started section. The seeder files are found in seeder folder, the seed command in `package.json` make the seed methods in `seeder.ts` run by getting called in `server.ts`. 
 
 ## Utils
-Here you find setup for sending emails with NodeMailer in form of a reusable transporter and an error response helper. 
+Here you find setup for sending emails with NodeMailer in form of a reusable transporter, an subscribe to newsletter email validator and an error response helper. 
 
 ## ER diagram
 
-<!--![ER diagram](https://user-images.githubusercontent.com/90186337/198005464-806bc0d7-e65d-4724-a680-2628948ab8ee.jpg)-->
-
-<img src="https://user-images.githubusercontent.com/90186337/198005464-806bc0d7-e65d-4724-a680-2628948ab8ee.jpg" alt="ER diagram" width="100%">
+<img src="https://user-images.githubusercontent.com/90186337/198668102-5bce9007-b9d1-49a8-ad57-668ff230581f.jpg" alt="ER diagram" width="100%">
 
 ---
 
