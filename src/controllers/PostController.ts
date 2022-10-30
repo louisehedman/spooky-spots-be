@@ -1,6 +1,6 @@
 import { Request, RequestHandler, Response } from "express";
 import CommunityThread from "../models/CommunityThread";
-import Post, { IPost } from "../models/Post";
+import Post from "../models/Post";
 import User from "../models/User";
 
 // Get all posts by thread id
@@ -47,7 +47,7 @@ const createPost = async (req: Request, res: Response) => {
     const pushedPost = await user.save();
 
     if (savedPost && pushedPost) {
-      res.status(201).json({ message: "Post created successfully" });
+      res.status(200).json({ message: "Post created successfully" });
     }
   } else {
     res.status(404).json({ message: "Post not created" });

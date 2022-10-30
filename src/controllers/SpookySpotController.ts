@@ -12,7 +12,7 @@ const createSpookySpot = async (req: Request, res: Response, next: any) => {
     if (user.isAdmin === true) {
     const spookySpot = await SpookySpot.create(req.body);
     spookySpot.save().then(() => {
-      res.status(201).json({ message: "Spooky spot created" });
+      res.status(200).json({ message: "Spooky spot created" });
     });
   }  else {
     res.status(400).json({ message: "You are not allowed to create SpookySpots" });
