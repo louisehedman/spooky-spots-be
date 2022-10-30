@@ -8,7 +8,7 @@ Explore haunted places (SpookySpots), learn about ghost types, possibility to sa
 
 ## **About this project**
 
-This is a school assignment ninth for Fullstack Developer students at Chas Academy. The aim of the assignment was to go from an idea to a finished product with a code base in MERN-stack and TypeScript. The app's content is developed based on a user analysis, personas and user stories have their basis in the analysis. SpookySpots is the result. This is the backend part of the project. This backend is deployed at Render **link**
+This is a school assignment for Fullstack Developer students at Chas Academy. The aim of the assignment was to go from an idea to a finished product with a code base in MERN-stack and TypeScript. The app's content is developed based on a user analysis, personas and user stories have their basis in the analysis. SpookySpots is the result. This is the backend part of the project. This backend is deployed at [Render](https://spooky-spots.onrender.com/).
 
 
 You find the frontend source code (React, TypeScript) [here](https://github.com/louisehedman/spooky-spots-fe) which is deployed at [Netlify](https://spookyspots.netlify.app/). Instructions for how to set up the frontend part of this project can be found in the frontend repo.
